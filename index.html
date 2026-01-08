@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>GREx: A Multi-Modal Dataset for Referring Motion Expression Video Segmentation
+</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="RHqlM-yRssUYgbykhtd0uguPnqkhTvwJw-aLE04B4KQ" />
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="assets/favicon/site.webmanifest">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Squadfree
+  * Template URL: https://bootstrapmade.com/squadfree-free-bootstrap-template-creative/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename" style="text-transform: none;">GREx</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#about">Introduction</a></li>
+          <li><a href="#stats">Statistics</a></li>
+          <li><a href="#dataset">Dataset</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#citation">Citation</a></li>
+          <li class="dropdown"><a href="#"><span>Links</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a rel="nofollow noopener noreferrer" target="_blank" href="https://henghuiding.com/GRES/">GRES</a></li>
+              <li><a rel="nofollow noopener noreferrer" target="_blank" href="https://mose.video/">MOSE</a></li>
+              <li><a rel="nofollow noopener noreferrer" target="_blank" href="https://henghuiding.com/MeViS/">MeViS</a></li>
+            </ul>
+          </li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section accent-background">
+
+      <img id="hero-bg" src="images/main_background.jpg" alt="">
+
+      <div class="container text-center" data-aos="fade-up" data-aos-delay="100">
+        <h2 style="text-transform: none; color:#FFAC1C;">GREx</h2>
+        <p>Generalized Referring Expression Segmentation, Comprehension, and Generation</p>
+        <div class="icon-list">
+          <a rel="nofollow noopener noreferrer" target="_blank" href="" class="hero-btn align-self-center align-self-l-start"><i class="bi bi-file-earmark-text"></i>&nbsp;<span>IJCV Paper (Coming Soon)</span> <i class="bi bi-chevron-right"></i></a>
+          <a rel="nofollow noopener noreferrer" target="_blank" href="https://openaccess.thecvf.com/content/CVPR2023/papers/Liu_GRES_Generalized_Referring_Expression_Segmentation_CVPR_2023_paper.pdf" class="hero-btn align-self-center align-self-l-start"><i class="bi bi-file-earmark-text"></i>&nbsp;<span>CVPR Paper</span> <i class="bi bi-chevron-right"></i></a>
+          <a href="#dataset" class="hero-btn align-self-center align-self-l-start"><i class="bi bi-cloud-arrow-down"></i>&nbsp;<span>Download</span> <i class="bi bi-chevron-right"></i></a>
+          <a rel="nofollow noopener noreferrer" target="_blank" href="https://github.com/henghuiding/ReLA" class="hero-btn align-self-center align-self-l-start"><i class="bi bi-github"></i>&nbsp;<span>Github</span> <i class="bi bi-chevron-right"></i></a>
+        </div>
+
+        <div class="icon-list mt-3">
+          <a rel="nofollow noopener noreferrer" target="_blank" href="https://henghuiding.com/GRES/" class="hero-btn align-self-center align-self-l-start"><span style="text-transform: none;">GRES</span> <i class="bi bi-chevron-right"></i></a>
+
+          <a rel="nofollow noopener noreferrer" target="_blank" href="https://mose.video/" class="hero-btn align-self-center align-self-l-start"><span>MOSE</span> <i class="bi bi-chevron-right"></i></a>
+
+          <a rel="nofollow noopener noreferrer" target="_blank" href="https://henghuiding.com/MeViS/" class="hero-btn align-self-center align-self-l-start"><span>MeViS</span> <i class="bi bi-chevron-right"></i></a>
+
+        </div>
+        <a href="#about" class="btn-scroll" title="Scroll Down"><i class="bi bi-chevron-down"></i></a>
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <div class="container">
+
+        <div class="row gy-5 align-items-center justify-content-center">
+
+          <div class="content col-xl-12" data-aos="fade-up" data-aos-delay="100">
+            <h3>Introduction</h3>
+            <p>
+              Referring Expression Segmentation (RES) and Comprehension (REC) respectively segment and detect the object described by an expression, while Referring Expression Generation (REG) generates an expression for the selected object. Existing datasets and methods commonly support single-target expressions only, i.e., one expression refers to one object, not considering multi-target and no-target expressions. This greatly limits the real applications of REx (RES/REC/REG). 
+            </p>
+            <p>
+              This paper introduces three new benchmarks called Generalized Referring Expression Segmentation (GRES), Comprehension (GREC), and Generation (GREG), collectively denoted as <strong style="color:orange;">GREx</strong>, which extend the classic REx to allow expressions to identify an arbitrary number of objects. We construct the first large-scale GREx dataset gRefCOCO that contains multi-target, no-target, and single-target expressions and their corresponding images with labeled targets. GREx and gRefCOCO are designed to be backward-compatible with REx, facilitating extensive experiments to study the performance gap of the existing REx methods on GREx tasks.
+            </p>
+          </div>
+
+          <div class="mt-2" data-aos="fade-up" data-aos-delay="200">
+            <div class="row gy-4">
+
+            <div class="d-flex align-items-center justify-content-center flex-column">
+              <img src="images/teaser.jpeg" class="col-xl-10 img-fluid rounded" alt="Teaser image">
+              <p class="col-xl-10 mt-3">Classic Referring Expression Segmentation (RES), Comprehension (REC), and Generation (REG), collectively denoted as <b>REx</b>, only supports expressions that indicate a single target object, e.g., <i>"The kid in red"</i>. Compared with REx, the proposed <b>Generalized Referring Expression tasks (GREx), including Generalized RES (GRES), Generalized REC (GREC), and Generalized REG (GREG)</b>, extend expressions to multi-target or no-target. For example, GREx support multi-target expressions that indicate several objects by their commonalities or relationships, e.g., category <i>(2) "All people"</i>, attribute <i>(3) "Standing people"</i>, counting <i>(4) "Two people on the far left"</i>, and compound <i>(5) "Everyone except the kid in white"</i>. GRES and GREC further support no-target expressions that do not match any object, e.g., <i>(6) "The kid in blue"</i>.</p>
+              <p class="mt-3 text-center"></p>
+            </div>
+
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section><!-- /About Section -->
+
+
+    <!-- Stats Section -->
+    <section id="stats" class="stats section light-background">
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Statistics</h2>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item">
+              <i class="bi bi-chat-quote"></i>
+              <span data-purecounter-start="0" data-purecounter-end="259859" data-purecounter-duration="1" data-purecounter-separator="true" class="purecounter"></span>
+              <p>Total privided <strong>Expressions</strong></p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item">
+              <i class="bi bi-braces-asterisk"></i>
+              <span data-purecounter-start="0" data-purecounter-end="124601" data-purecounter-duration="1" data-purecounter-separator="true" class="purecounter"></span>
+              <p><strong>Multiple- or No-target</strong> <span>expressions</span></p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item">
+              <i class="bi bi-bounding-box-circles"></i>
+              <span data-purecounter-start="0" data-purecounter-end="61316" data-purecounter-duration="1" data-purecounter-separator="true" class="purecounter"></span>
+              <p><span>referred distinct</span> <strong>Objects</strong> </p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item">
+              <i class="bi bi-images"></i>
+              <span data-purecounter-start="0" data-purecounter-end="19994" data-purecounter-duration="1" data-purecounter-separator="true" class="purecounter"></span>
+              <p>High-quality <strong>Mask annotations</strong></p>
+            </div>
+          </div><!-- End Stats Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Stats Section -->
+
+
+    <!-- Services Section -->
+    <section id="tasks" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Tasks</h2>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-5">
+
+          <div class="content col-xl-12 flex-column" data-aos="fade-up" data-aos-delay="100">
+            <p>In this work, in order to overcome the limitations of classic RES, REC, and REG, we introduce three new GREx benchmarks, called Generalized Referring Expression Segmentation (GRES), Generalized Referring Expression Comprehension (GREC), and Generalized Referring Expression Generation (GREG), which allow expressions indicating any number of target objects. GRES/GREC takes an image and a referring expression as input, the same as classic RES/REC.
+            </p>
+          </div>
+
+          
+          <div data-aos="fade-up" data-aos-delay="200">
+            <div class="row gy-4 justify-content-center">
+
+              <div class="col-md-3 col-sm-3 icon-box position-relative">
+                <!-- <i class="bi bi-briefcase"></i> -->
+                <h4><a class="stretched-link">GRES</a></h4>
+                <p>Generalized Referring Expression <strong>Segmentation</strong></p>
+              </div><!-- Icon-Box -->
+
+              <div class="col-md-3 col-sm-3 icon-box position-relative">
+                <!-- <i class="bi bi-gem"></i> -->
+                <h4><a class="stretched-link">GREC</a></h4>
+                <p>Generalized Referring Expression <strong>Comprehension</strong></p>
+              </div><!-- Icon-Box -->
+
+              <div class="col-md-3 col-sm-3 icon-box position-relative">
+                <!-- <i class="bi bi-broadcast"></i> -->
+                <h4><a class="stretched-link">GREG</a></h4>
+                <p>Generalized Referring Expression <strong>Generation</strong></p>
+              </div><!-- Icon-Box -->
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
+    <!-- Services Section -->
+    <section id="expressions" class="services section light-background mb-0">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Expressions</h2>
+      </div><!-- End Section Title -->
+
+    </section>
+
+    <section id="exps-2" class="services section" style="padding-top:0px">
+      <div class="container">
+
+        <div class="row gy-5">
+
+          <div class="content col-xl-12 flex-column mb-2" data-aos="fade-up" data-aos-delay="100">
+            <p>The incorporation of multi-target, no-target expressions and GREC extends the application scope beyond single object and makes the tasks more practical to real-world scenarios:
+            </p>
+          </div>
+
+        </div>
+        <div class="row gy-5">
+
+          <div data-aos="fade-up" data-aos-delay="200">
+            <div class="row gy-4 justify-content-center">
+              <div class="exp-title col-md-8 col-sm-8 icon-box">
+                <div class="d-flex align-items-center justify-content-center gap-3">
+                  <i class="bi bi-boxes"></i>
+                  <div class="text-left">
+                    <h4 class="mb-1"><a class="stretched-link">Multi-target Expressions</a></h4>
+                  </div>
+                </div>
+              </div><!-- Icon-Box -->
+
+              <div class="exp-item d-flex align-items-center justify-content-center flex-column">
+                <img src="images/mtapp.jpeg" class="col-xl-8 img-fluid rounded" alt="Teaser image">
+                <p class="mt-3 text-center">(a) Multi-target: selecting multiple objects in a single forward process.</p>
+              </div>
+            </div>
+
+
+
+            <div class="row gy-4 justify-content-center">
+              <div class="exp-title col-md-8 col-sm-8 icon-box">
+                <div class="d-flex align-items-center justify-content-center gap-3">
+                  <i class="bi bi-dash-circle-dotted"></i>
+                  <div class="text-left">
+                    <h4 class="mb-1"><a class="stretched-link">No-target Expressions</a></h4>
+                  </div>
+                </div>
+              </div><!-- Icon-Box -->
+
+              <div class="exp-item d-flex align-items-center justify-content-center flex-column">
+                <img src="images/ntapp.jpeg" class="col-xl-8 img-fluid rounded" alt="Teaser image">
+                <p class="mt-3 text-center">(b) No-target: retrieving images that contain the object.</p>
+              </div>
+            </div>
+
+
+
+            <div class="row gy-4 justify-content-center">
+
+              <div class="exp-title col-md-8 col-sm-8 icon-box">
+                <div class="d-flex align-items-center justify-content-center gap-3">
+                  <i class="bi bi-chat-dots"></i>
+                  <div class="text-left">
+                    <h4 class="mb-1"><a class="stretched-link">Generalized Referring Expression Generation </a></h4>
+                  </div>
+                </div>
+              </div><!-- Icon-Box -->
+
+              <div class="exp-item d-flex align-items-center justify-content-center flex-column light-background">
+                <img src="images/gregapp.jpeg" class="col-xl-8 img-fluid rounded" alt="Teaser image">
+                <p class="col-xl-8 mt-3">(c) GREG: capturing the common semantics and generating concise
+  and natural expression for multiple selected objects at once.</p>
+                <p class="mt-3 text-center"></p>
+              </div>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
+
+
+
+    <!-- Services Section -->
+    <section id="dataset" class="services section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Dataset</h2>
+      </div><!-- End Section Title -->
+      
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="content col-xl-12 flex-column" data-aos="fade-up" data-aos-delay="100">
+            <h3>Dataset Download</h3>
+            <p>
+              The dataset is available for non-commercial research purpose only. Please follow the following links to download.
+            </p>
+          </div>
+
+          <div class="col-xl-6 col-md-6 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative">
+              <div class="icon">
+                <img src="images/hf-logo-pirate.svg" alt="Hugging Face logo" class="hf-icon"><i></i>
+              </div>
+              <h4><a rel="nofollow noopener noreferrer" target="_blank" class="stretched-link" href="https://huggingface.co/datasets/FudanCVL/gRefCOCO">Hugging Face</a></h4>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-6 col-md-6 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-cloud-arrow-down"></i></div>
+                <h4><a rel="nofollow noopener noreferrer" target="_blank" class="stretched-link" href="https://drive.google.com/drive/u/1/folders/1My2U6SuTAZG9yGBKe_PjsUJJgjdxOiiN">Google Drive</a></h4>
+            </div>
+          </div><!-- End Service Item -->
+        </div>
+
+        <div class="row gy-4">
+
+          <div class="content col-xl-12 flex-column mt-5" data-aos="fade-up" data-aos-delay="100">
+            <h3>Baselines</h3>
+            <p>We provide baseline code and models for GRES and GREC:</p>
+          </div>
+
+
+        <div class="col-xl-6 col-md-6 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-item position-relative">
+            <div class="icon"><div class="icon"><i class="bi bi-github"></i></div></div>
+            <h4><a rel="nofollow noopener noreferrer" target="_blank" class="stretched-link" href="https://github.com/henghuiding/ReLA">GRES Baseline (ReLA)</a></h4>
+          </div>
+        </div><!-- End Service Item -->
+
+        <div class="col-xl-6 col-md-6 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-item position-relative">
+            <div class="icon"><div class="icon"><i class="bi bi-github"></i></div></div>
+            <h4><a rel="nofollow noopener noreferrer" target="_blank" class="stretched-link" href="https://github.com/henghuiding/gRefCOCO">GREC Baseline</a></h4>
+          </div>
+        </div><!-- End Service Item -->
+
+      </div>
+
+        </div>
+
+
+      </div>
+
+    </section><!-- /Services Section -->
+
+
+    <!-- Team Section -->
+    <section id="team" class="team section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>People</h2>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-5 justify-content-center row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
+
+          <div class="col d-flex justify-content-center" data-aos="zoom-in" data-aos-delay="200">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="images/people/ding.gif" class="img-fluid" alt="">
+              </div>
+              <div class="member-info">
+
+                <h4><a href="https://henghuiding.com/" target="_blank">Henghui Ding</a></h4>
+                <span>Fudan University</span>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col d-flex justify-content-center" data-aos="zoom-in" data-aos-delay="200">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="images/people/liu.gif" class="img-fluid" alt="">
+              </div>
+              <div class="member-info">
+
+                <h4><a href="https://scholar.google.com/citations?user=XlQP0GIAAAAJ&hl=zh-CN" target="_blank">Chang Liu</a></h4>
+                <span>SUFE</span>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col d-flex justify-content-center" data-aos="zoom-in" data-aos-delay="200">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="images/people/he.gif" class="img-fluid" alt="">
+              </div>
+              <div class="member-info">
+
+                <h4><a href="https://heshuting555.github.io/" target="_blank">Shuting He</a></h4>
+                <span>SUFE</span>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col d-flex justify-content-center" data-aos="zoom-in" data-aos-delay="200">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="images/people/jiang.gif" class="img-fluid" alt="">
+              </div>
+              <div class="member-info">
+
+                <h4><a href="https://personal.ntu.edu.sg/exdjiang/" target="_blank">Xudong Jiang</a></h4>
+                <span>NTU</span>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col d-flex justify-content-center" data-aos="zoom-in" data-aos-delay="200">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="images/people/yjiang.gif" class="img-fluid" alt="">
+              </div>
+              <div class="member-info">
+
+                <h4><a href="https://scholar.google.com/citations?user=f3_FP8AAAAAJ&hl=zh-TW" target="_blank">Yu-Gang Jiang</a></h4>
+                <span>Fudan University</span>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Team Section -->
+
+    <!-- Faq Section -->
+    <section id="citation" class="faq section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Citation</h2>
+        <p>Please consider to cite GREx if it helps your research.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="citation-box" data-aos="fade-up" data-aos-delay="100">
+            <pre><code>@article{GREx,
+  title={{GREx}: Generalized Referring Expression Segmentation, Comprehension, and Generation},
+  author={Ding, Henghui and Liu, Chang and He, Shuting and Jiang, Xudong and Jiang, Yu-Gang},
+  journal={IJCV},
+  year={2026},
+  publisher={Springer}
+}
+@inproceedings{GRES,
+  title={{GRES}: Generalized Referring Expression Segmentation},
+  author={Liu, Chang and Ding, Henghui and Jiang, Xudong},
+  booktitle={CVPR},
+  year={2023}
+}
+@article{VLT,
+  title={{VLT}: Vision-language transformer and query generation for referring segmentation},
+  author={Ding, Henghui and Liu, Chang and Wang, Suchen and Jiang, Xudong},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2023},
+  publisher={IEEE}
+}</code></pre>
+        </div><!-- End Cite Item-->
+
+        <div class="mt-1" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-lg-7">
+
+            <p class="mt-3 text-muted">Check out our related works on vision-language understanding, and more!</p>
+          </div>
+        </div>
+
+        <div class="citation-box" data-aos="fade-up" data-aos-delay="100">
+            <pre><code>@article{MeViSv2,
+  title={MeViS: A Multi-Modal Dataset for Referring Motion Expression Video Segmentation},
+  author={Ding, Henghui and Liu, Chang and He, Shuting and Ying, Kaining and Jiang, Xudong and Loy, Chen Change and Jiang, Yu-Gang},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2025},
+  publisher={IEEE}
+}
+@inproceedings{MeViS,
+  title={{MeViS}: A Large-scale Benchmark for Video Segmentation with Motion Expressions},
+  author={Ding, Henghui and Liu, Chang and He, Shuting and Jiang, Xudong and Loy, Chen Change},
+  booktitle={ICCV},
+  year={2023}
+}@article{MOSEv2,
+  title={{MOSEv2}: A More Challenging Dataset for Video Object Segmentation in Complex Scenes},
+  author={Ding, Henghui and Ying, Kaining and Liu, Chang and He, Shuting and Jiang, Xudong and Jiang, Yu-Gang and Torr, Philip HS and Bai, Song},
+  journal={arXiv preprint arXiv:2508.05630},
+  year={2025}
+}
+@inproceedings{MOSE,
+  title={{MOSE}: A New Dataset for Video Object Segmentation in Complex Scenes},
+  author={Ding, Henghui and Liu, Chang and He, Shuting and Jiang, Xudong and Torr, Philip HS and Bai, Song},
+  booktitle={ICCV},
+  year={2023}
+}</code></pre>
+        </div><!-- End Cite Item-->
+      </div>
+        
+
+      </div>
+    </section><!-- /Faq Section -->
+    <a href="https://clustrmaps.com/site/1c8xd" title="Visit tracker" target="_blank"><img src="//www.clustrmaps.com/map_v2.png?d=P-JYhlIdNYOgDish5eemuIJoc89hrM7jXmjnkejnVzM&cl=ffffff" height="1" width="1" style="display:block;margin-top:5px;margin-bottom:0px;margin-left:auto;text-align:right"></a>
+
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+
+    <div class="container copyright text-center mt-4">
+      <a rel="license" target="_blank" data-spdx="CC-BY-NC-SA-4.0" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0"src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+      <div class="mt-2">
+        <p>GREx is licensed under a <a rel="license" data-spdx="CC-BY-NC-SA-4.0"href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA-4.0 License</a>. The data of GREx is released for non-commercial research purpose only.</p>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/lottie/lottie-player.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
